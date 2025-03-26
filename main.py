@@ -1,4 +1,3 @@
-
 import requests
 import datetime
 
@@ -25,17 +24,13 @@ if response.status_code == 200:
     if not tweets:
         message = "No trending tweets found at the moment."
     else:
-message = "🔥 *Top Web3 Tweets Today:*\\n\\n"
-"
+        message = "🔥 *Top Web3 Tweets Today:*\\n\\n"
         for tweet in tweets:
             tweet_url = f"https://twitter.com/i/web/status/{tweet['id']}"
-            content = tweet['text'].replace("\n", " ").strip()
-            message += f"• {content[:100]}...
-🔗 {tweet_url}
-
-"
+            content = tweet['text'].replace("\\n", " ").strip()
+            message += f"• {content[:100]}...\\n🔗 {tweet_url}\\n\\n"
 else:
-    message = f"Error fetching tweets: {response.status_code}\n{response.text}"
+    message = f"Error fetching tweets: {response.status_code}\\n{response.text}"
 
 # Step 3: Send message to Telegram
 tg_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
