@@ -14,7 +14,7 @@ headers = {
 }
 
 query = "web3 OR nft OR crypto lang:en -is:retweet"
-url = f"https://api.twitter.com/2/tweets/search/recent?query={query}&max_results=5&tweet.fields=public_metrics,created_at"
+url = f"https://api.twitter.com/2/tweets/search/recent?query={query}&max_results=10&tweet.fields=public_metrics,created_at"
 
 response = requests.get(url, headers=headers)
 
