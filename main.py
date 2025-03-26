@@ -25,8 +25,7 @@ if response.status_code == 200:
     if not tweets:
         message = "No trending tweets found at the moment."
     else:
-        message = "🔥 *Top Web3 Tweets Today:*
-
+message = "🔥 *Top Web3 Tweets Today:*\\n\\n"
 "
         for tweet in tweets:
             tweet_url = f"https://twitter.com/i/web/status/{tweet['id']}"
